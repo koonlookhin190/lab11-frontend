@@ -25,13 +25,19 @@ export default {
   padding: 20px;
   width: 250px;
   cursor: pointer;
-  border: 1px solid #39495c;
+  background: white;
+  border: 1px solid #ffe600;
   margin-bottom: 18px;
+  transition: 0.25s;
+  border-radius: 20px;
 }
 
 .event-card:hover {
+  background: transparent;
+  color: white;
   transform: scale(1.01);
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 3px 12px 0 rgba(236, 202, 5, 0.753);
 }
 
 .event-link {

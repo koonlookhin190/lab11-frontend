@@ -28,3 +28,12 @@ export default {
   }
 }
 </script>
+<style scoped>
+label {
+  color: white;
+}
+input {
+  border-radius: 50px;
+  border: 1px solid #ffe600;
+}
+</style>

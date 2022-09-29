@@ -128,6 +128,9 @@ export default {
 }
 </script>
 <style scoped>
+h1 {
+  color: white;
+}
 .events {
   display: flex;
   flex-direction: column;
@@ -141,7 +144,7 @@ export default {
 .pagination a {
   flex: 1;
   text-decoration: none;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 #page-prev {

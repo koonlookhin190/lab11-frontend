@@ -15,6 +15,9 @@ export default {
 </script>
 
 <style>
+body {
+  background: rgba(0, 0, 0, 0.89);
+}
 @keyframes yellowfade {
   from {
     background: yellow;
@@ -44,11 +47,11 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #ffe600;
 }
 h4 {
   font-size: 20px;
