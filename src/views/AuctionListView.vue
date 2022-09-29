@@ -11,15 +11,15 @@
       />
     </div>
     <EventCard
-      v-for="event in events"
-      :key="event.id"
-      :event="event"
+      v-for="auction in auctions"
+      :key="auction.id"
+      :auction="auction"
     ></EventCard>
 
     <div class="pagination">
       <router-link
         id="page-prev"
-        :to="{ name: 'EventList', query: { page: page - 1 } }"
+        :to="{ name: 'AuctionListView', query: { page: page - 1 } }"
         rel="prev"
         v-if="page != 1"
       >
@@ -28,7 +28,7 @@
 
       <router-link
         id="page-next"
-        :to="{ name: 'EventList', query: { page: page + 1 } }"
+        :to="{ name: 'AuctionListView', query: { page: page + 1 } }"
         rel="next"
         v-if="hasNextPage"
       >
@@ -44,7 +44,7 @@ import EventCard from '@/components/EventCard.vue'
 //import EventService from '@/services/EventService.js'
 import AuctionService from '@/services/AuctionService.js'
 export default {
-  name: 'EventListView',
+  name: 'AuctionListView',
   props: {
     page: {
       type: Number,
@@ -56,8 +56,8 @@ export default {
   },
   data() {
     return {
-      events: null,
-      totalEvents: 0,
+      auctions: null,
+      totalAuctions: 0,
       keyword: null
     }
   },
@@ -66,8 +66,8 @@ export default {
     AuctionService.getAuctions(3, parseInt(routeTo.query.page) || 1)
       .then((response) => {
         next((comp) => {
-          comp.events = response.data
-          comp.totalEvents = response.headers['x-total-count']
+          comp.auctions = response.data
+          comp.totalAuctions = response.headers['x-total-count']
         })
       })
       .catch(() => {
@@ -91,8 +91,8 @@ export default {
     }
     queryFunction
       .then((response) => {
-        this.events = response.data // <---
-        this.totalEvents = response.headers['x-total-count'] // <---
+        this.auctions = response.data // <---
+        this.totalAuctions = response.headers['x-total-count'] // <---
       })
       .catch(() => {
         return { name: 'NetworkError' } // <---
@@ -109,10 +109,10 @@ export default {
 
       queryFunction
         .then((response) => {
-          this.events = response.data
-          console.log(this.events)
-          this.totalEvents = response.headers['x-total-count']
-          console.log(this.totalEvents)
+          this.auctions = response.data
+          console.log(this.acutions)
+          this.totalAuctions = response.headers['x-total-count']
+          console.log(this.totalAuctions)
         })
         .catch(() => {
           return { name: 'NetworkError' }
@@ -121,7 +121,7 @@ export default {
   },
   computed: {
     hasNextPage() {
-      let totalPages = Math.ceil(this.totalEvents / 3)
+      let totalPages = Math.ceil(this.totalAuctions / 3)
       return this.page < totalPages
     }
   }
